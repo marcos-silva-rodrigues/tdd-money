@@ -1,7 +1,7 @@
 import { Dollar } from "../src/dollar";
 import { Euro } from "../src/Euro";
 
-describe('Dollar', () => {
+describe('Money', () => {
   it('shold return 10 when five dollars are multiplied by two and 15 when multiplied by three' , () => {
     const five = new Dollar(5)
     expect(five.times(2).equals(new Dollar(10))).toBeTruthy()
