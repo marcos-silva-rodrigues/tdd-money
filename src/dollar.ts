@@ -1,8 +1,8 @@
 export class Dollar {
   
-  constructor(public amount: number) {}
+  constructor(public readonly amount: number) {}
 
-  times(mulltipliers: number): void {
-    this.amount *= mulltipliers;
+  times(mulltipliers: number): Dollar {
+    return new Dollar(this.amount * mulltipliers);
   }
 }
