@@ -1,12 +1,12 @@
-export class Euro {
-  
-  constructor(private readonly amount: number) {}
+import { Money } from "./Money";
+
+export class Euro extends Money {
+  constructor(amount: number) {
+    super();
+    this.amount = amount;
+  }
 
   times(mulltipliers: number): Euro {
     return new Euro(this.amount * mulltipliers);
-  }
-
-  equals(other: Euro) {
-    return this.amount === other.amount;
   }
 }
