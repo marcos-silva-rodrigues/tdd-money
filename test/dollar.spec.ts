@@ -8,5 +8,10 @@ describe('Dollar', () => {
     expect(product.amount).toEqual(10)
     product = five.times(3)
     expect(product.amount).toEqual(15)
-  });
-});
+  })
+
+  it('should return true when $5 is compared to $5', () => {
+    expect(new Dollar(5).equals(new Dollar(5))).toBeTruthy()
+    expect(new Dollar(5).equals(new Dollar(6))).toBeFalsy()
+  })
+})
