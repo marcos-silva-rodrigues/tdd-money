@@ -1,13 +1,13 @@
 import { Dollar } from "../src/dollar";
 
 describe('Dollar', () => {
-  it('shold return 10 when five dollars are multiplied by two' , () => {
+  it('shold return 10 when five dollars are multiplied by two and 15 when multiplied by three' , () => {
     const five = new Dollar(5)
-    var product = five.times(2)
-    expect(five.amount).toEqual(5)
-    expect(product.amount).toEqual(10)
-    product = five.times(3)
-    expect(product.amount).toEqual(15)
+    expect(five.times(2).equals(new Dollar(10))).toBeTruthy()
+    expect(five.equals(new Dollar(5))).toBeTruthy();
+
+    expect(five.times(3).equals(new Dollar(15))).toBeTruthy()
+    expect(five.equals(new Dollar(5))).toBeTruthy();
   })
 
   it('should return true when $5 is compared to $5', () => {
