@@ -1,4 +1,6 @@
-export class Money {
+import { Expression } from "./expression";
+
+export class Money implements Expression {
   private readonly amount: number;
   private readonly _currency: string;
 
@@ -19,6 +21,10 @@ export class Money {
   currency(): string {
     return this._currency;
   } 
+
+  plus(addend: Money): Expression {
+    return new Money(this.amount + addend.amount, this._currency);
+  }
 
   static dollar(amount: number): Money {
     return new Money(amount, "USD");
