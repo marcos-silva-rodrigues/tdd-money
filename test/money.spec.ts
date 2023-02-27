@@ -1,25 +1,24 @@
-import { Dollar } from "../src/dollar";
-import { Euro } from "../src/Euro";
+import { Money } from "../src/Money";
 
 describe('Money', () => {
   it('should correctly handle dollar multiplication' , () => {
-    const five = new Dollar(5)
-    expect(five.times(2).equals(new Dollar(10))).toBeTruthy()
-    expect(five.equals(new Dollar(5))).toBeTruthy()
+    const five: Money = Money.dollar(5);
+    expect(five.times(2).equals(Money.dollar(10))).toBeTruthy()
+    expect(five.equals(Money.dollar(5))).toBeTruthy()
   })
 
   it('should correctly handle euro multiplication' , () => {
-    const five = new Euro(5)
-    expect(five.times(2).equals(new Euro(10))).toBeTruthy()
-    expect(five.equals(new Euro(5))).toBeTruthy()
+    const five: Money = Money.euro(5);
+    expect(five.times(2).equals(Money.euro(10))).toBeTruthy()
+    expect(five.equals(Money.euro(5))).toBeTruthy()
   })
 
   it('should correctly handle money equality', () => {
-    expect(new Dollar(5).equals(new Dollar(5))).toBeTruthy()
-    expect(new Dollar(5).equals(new Dollar(6))).toBeFalsy()
+    expect(Money.dollar(5).equals(Money.dollar(5))).toBeTruthy()
+    expect(Money.dollar(5).equals(Money.dollar(6))).toBeFalsy()
 
-    expect(new Euro(5).equals(new Euro(5))).toBeTruthy()
-    expect(new Euro(5).equals(new Euro(6))).toBeFalsy()
-    expect(new Euro(5).equals(new Dollar(5))).toBeFalsy()
+    expect(Money.euro(5).equals(Money.euro(5))).toBeTruthy()
+    expect(Money.euro(5).equals(Money.euro(6))).toBeFalsy()
+    expect(Money.euro(5).equals(Money.dollar(5))).toBeFalsy()
   })
 })
